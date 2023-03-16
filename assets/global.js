@@ -817,11 +817,25 @@ class VariantSelects extends HTMLElement {
       this.updateShareUrl();
     }
   }
+// strat-ecom
 
   filterVariant(){
-    console.log("updated",this.currentVariant)
+    if(this.currentVariant.featured_image && this.currentVariant.featured_image.alt) {
+
+      document.querySelectorAll('[thumbnail-alt]').forEach(img => image.style.display='none')
+      const currentImgAlt = this.currentVariant.featured_image.alt
+      const thumbnailSelector = `[thumbnail-alt = '${currentImgAlt}']`
+      document.querySelectorAll(thumbnailSelector).forEach(img => image.style.display='block')
+    }
+    else{
+      //what to show
+
+      document.querySelectorAll('[thumbnail-alt]').forEach(img => image.style.display='block')
+    }
   }
 
+  
+// end-ecom
   updateOptions() {
     this.options = Array.from(this.querySelectorAll('select'), (select) => select.value);
   }
