@@ -800,6 +800,7 @@ class VariantSelects extends HTMLElement {
   onVariantChange() {
     this.updateOptions();
     this.updateMasterId();
+    this.filterVariant();
     this.toggleAddButton(true, '', false);
     this.updatePickupAvailability();
     this.removeErrorMessage();
@@ -815,6 +816,10 @@ class VariantSelects extends HTMLElement {
       this.renderProductInfo();
       this.updateShareUrl();
     }
+  }
+
+  filterVariant(){
+    console.log("updated",this.currentVariant)
   }
 
   updateOptions() {
