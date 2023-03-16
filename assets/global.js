@@ -800,7 +800,7 @@ class VariantSelects extends HTMLElement {
   onVariantChange() {
     this.updateOptions();
     this.updateMasterId();
-    this.filterImgVariant();
+   // this.filterImgVariant();
     this.toggleAddButton(true, '', false);
     this.updatePickupAvailability();
     this.removeErrorMessage();
@@ -821,20 +821,21 @@ class VariantSelects extends HTMLElement {
 
 // strat-ecom
 
-  filterImgVariant(){
-    if(this.currentVariant.featured_image && this.currentVariant.featured_image.alt) {
+  //filterImgVariant(){
+    // if(this.currentVariant.featured_image && this.currentVariant.featured_image.alt) {
 
-      document.querySelectorAll('[thumbnail-alt]').forEach(img => image.style.display='none')
-      const currentImgAlt = this.currentVariant.featured_image.alt
-      const thumbnailSelector = `[thumbnail-alt = '${currentImgAlt}']`
-      document.querySelectorAll(thumbnailSelector).forEach(img => image.style.display='block')
-    }
-    else{
-      //what to show
+    //   document.querySelectorAll('[thumbnail-alt]').forEach(img => image.style.display='none')
+    //   const currentImgAlt = this.currentVariant.featured_image.alt
+    //   const thumbnailSelector = `[thumbnail-alt = '${currentImgAlt}']`
+    //   document.querySelectorAll(thumbnailSelector).forEach(img => image.style.display='block')
+    // }
+    // else{
+    //   //what to show
 
-      document.querySelectorAll('[thumbnail-alt]').forEach(img => image.style.display='block')
-    }
-  }
+    //   document.querySelectorAll('[thumbnail-alt]').forEach(img => image.style.display='block')
+    // }
+   // console.log('currentVarient', this.currentVarient)
+ // }
 
   
 // end-ecom
