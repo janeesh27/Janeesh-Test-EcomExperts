@@ -800,7 +800,7 @@ class VariantSelects extends HTMLElement {
   onVariantChange() {
     this.updateOptions();
     this.updateMasterId();
-    this.filterVariant();
+    this.filterImgVariant();
     this.toggleAddButton(true, '', false);
     this.updatePickupAvailability();
     this.removeErrorMessage();
@@ -817,9 +817,11 @@ class VariantSelects extends HTMLElement {
       this.updateShareUrl();
     }
   }
+
+
 // strat-ecom
 
-  filterVariant(){
+  filterImgVariant(){
     if(this.currentVariant.featured_image && this.currentVariant.featured_image.alt) {
 
       document.querySelectorAll('[thumbnail-alt]').forEach(img => image.style.display='none')
@@ -836,6 +838,8 @@ class VariantSelects extends HTMLElement {
 
   
 // end-ecom
+
+
   updateOptions() {
     this.options = Array.from(this.querySelectorAll('select'), (select) => select.value);
   }
