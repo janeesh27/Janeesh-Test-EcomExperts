@@ -822,6 +822,7 @@ class VariantSelects extends HTMLElement {
 // strat-ecom
 
   filterImgVariant(){
+    console.log('currentVarient', this.currentVarient)
     if(this.currentVariant.featured_image && this.currentVariant.featured_image.alt) {
 
       document.querySelectorAll('[thumbnail-alt]').forEach(img => image.style.display='none')
