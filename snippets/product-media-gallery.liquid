@@ -90,7 +90,7 @@ Usage:
       {%- for media in product.media -%}
         {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
           <li
-            {% if product.selected_or_first_available_variant.featured_image.alt != media.alt and if product.selected_or_first_available_variant.featured_image.alt != blank %}
+            {% if product.selected_or_first_available_variant.featured_image.alt != media.alt and product.selected_or_first_available_variant.featured_image.alt != blank %}
             style="display:none"
             {% endif %}
             thumbnail-alt={{media.alt}}
@@ -180,7 +180,7 @@ Usage:
           (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width | minus: 100 | times: media_width | round }} - 4rem) / 4),
           (min-width: 990px) calc(({{ media_width | times: 100 }}vw - 4rem) / 4),
           (min-width: 750px) calc((100vw - 15rem) / 8),
-                              calc((100vw - 8rem) / 3)
+                                        calc((100vw - 8rem) / 3)
         {%- endcapture -%}
 
         {%- if featured_media != null -%}
