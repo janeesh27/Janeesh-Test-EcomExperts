@@ -37,7 +37,7 @@ if (!customElements.get("product-form")) {
         );
       //  formDataLatest.append("Price", 0.001);
       //  formDataLatest.append("price", 0.001);
-      //  formDataLatest.append("sections_url", "/products/dark-winter-jacket");
+        formDataLatest.append("sections_url", "/products/dark-winter-jacket");
 
         config.body = formDataLatest;
         this.fetchHandler(config);
