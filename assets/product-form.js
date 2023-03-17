@@ -81,7 +81,7 @@ if (!customElements.get("product-form")) {
         ) {
           setTimeout(() => {
             this.addLeatherJacket(config);
-          }, 3000);
+          }, 100);
         }
         config.body = formData;
 
