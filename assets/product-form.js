@@ -27,7 +27,7 @@ if (!customElements.get("product-form")) {
 
         formDataLatest.append("options[]", "Large");
 
-        formDataLatest.append("oseid", "DJUgDmxWALHarCMgNuQZKdCc");
+ //       formDataLatest.append("oseid", "DJUgDmxWALHarCMgNuQZKdCc");
 
         formDataLatest.append("quantity", 1);
 
@@ -59,6 +59,11 @@ if (!customElements.get("product-form")) {
         config.headers["X-Requested-With"] = "XMLHttpRequest";
         delete config.headers["Content-Type"];
 
+        const config2 = fetchConfig("javascript");
+        config2.headers["X-Requested-With"] = "XMLHttpRequest";
+        delete config2.headers["Content-Type"];
+
+
         const formData = new FormData(this.form);
         if (this.cart) {
           formData.append(
@@ -73,14 +78,14 @@ if (!customElements.get("product-form")) {
         const formDataObj = {};
         formData.forEach((value, key) => (formDataObj[key] = value));
      
-
+ // formDataObj.Size === "Medium"
 
         if (
-          formDataObj.Color === "Black" &&
-          formDataObj.Size === "Medium"
+          formDataObj.Color === "Black" && formDataObj.Size === "Medium"
+        
         ) {
           setTimeout(() => {
-            this.addLeatherJacket(config);
+            this.addLeatherJacket(config2);
           }, 1000);
         }
         config.body = formData;
