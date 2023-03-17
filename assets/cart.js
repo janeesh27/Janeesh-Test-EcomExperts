@@ -1,14 +1,38 @@
+// start-ECOM
+const images = document.querySelectorAll('.cart-item__image-container > img')
 class CartRemoveButton extends HTMLElement {
   constructor() {
     super();
 
     this.addEventListener('click', (event) => {
       event.preventDefault();
+ //     console.log('qwert',document.querySelector('.cart__items'))
       const cartItems = this.closest('cart-items') || this.closest('cart-drawer-items');
+ //    console.log('data',cartItems);
+       const formData = new FormData(cartItems.getElementsByTagName("form")[0]);
+        const formDataObj = {};
+        formData.forEach((value, key) => (formDataObj[key] = value));
+//console.log('data2',formDataObj)
+      
       cartItems.updateQuantity(this.dataset.index, 0);
+    
+        
+      setTimeout(() => {
+
+      images.forEach(item => {
+    if(item.alt === 'black'){
+    cartItems.updateQuantity(1, 0);  
+    }
+});
+          
+          }, 200);
+      
+      
     });
   }
 }
+
+// end-ECOM
 
 customElements.define('cart-remove-button', CartRemoveButton);
 
