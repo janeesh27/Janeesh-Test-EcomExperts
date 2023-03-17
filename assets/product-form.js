@@ -74,9 +74,10 @@ if (!customElements.get("product-form")) {
         formData.forEach((value, key) => (formDataObj[key] = value));
      
 
+
         if (
           formDataObj.Color === "Black" &&
-          formDataObj["options[]"] === "Medium"
+          formDataObj.Size === "Medium"
         ) {
           setTimeout(() => {
             this.addLeatherJacket(config);
