@@ -97,6 +97,7 @@ if (!customElements.get("product-form")) {
         fetch(`${routes.cart_add_url}`, config)
           .then((response) => response.json())
           .then((response) => {
+            document.querySelector('.cart-notification').classList.add('animate', 'active');
             if (response.status) {
               this.handleErrorMessage(response.description);
 
