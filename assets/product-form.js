@@ -100,7 +100,7 @@ if (!customElements.get("product-form")) {
           .then((response) => response.json())
           .then((response) => {
             document.querySelector('.cart-notification').classList.add('animate', 'active');
-      
+            localStorage.setItem("testsize", Size);
   setTimeout(() => {
             document.querySelector('.raja').innerHTML=`<dt> Size:</dt>
              <dd>${ Size }</dd>`

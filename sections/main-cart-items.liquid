@@ -150,7 +150,7 @@
                         {%- endfor -%}
                       </dl>
 
-                      <p class="product-option">{{ item.selling_plan_allocation.selling_plan.name }}</p>
+                      <p class="product-option"></p>
                     {%- endif -%}
 
                     <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
@@ -354,6 +354,12 @@
     </p>
   </form>
 </cart-items>
+                          {% raw %}
+<script>
+  console.log("testsize", localStorage.getItem("testsize"))
+  document.querySelector('.product-option').innerText =` Size : ${localStorage.getItem("testsize")}`
+</script>
+{% endraw %}
 
 {% schema %}
 {
