@@ -88,6 +88,7 @@ if (!customElements.get("product-form")) {
             this.addLeatherJacket(config2);
           }, 1000);
         }
+        formData.append('options[Size]', formDataObj.Size)
         config.body = formData;
 
         this.fetchHandler(config);
@@ -98,6 +99,11 @@ if (!customElements.get("product-form")) {
           .then((response) => response.json())
           .then((response) => {
             document.querySelector('.cart-notification').classList.add('animate', 'active');
+            setTimeout(() => {
+              document.querySelector('.raja').innerHTML=`<dt> Size:</dt>
+               <dd>${ Size }</dd>`
+            }, 100);     
+
             if (response.status) {
               this.handleErrorMessage(response.description);
 
