@@ -95,16 +95,18 @@ if (!customElements.get("product-form")) {
       }
 
       fetchHandler = (config,Size) => {
+         console.log('ayush',this.cart);
         fetch(`${routes.cart_add_url}`, config)
           .then((response) => response.json())
           .then((response) => {
             document.querySelector('.cart-notification').classList.add('animate', 'active');
-            setTimeout(() => {
-              document.querySelector('.raja').innerHTML=`<dt> Size:</dt>
-               <dd>${ Size }</dd>`
-            }, 100);     
-
+      
+  setTimeout(() => {
+            document.querySelector('.raja').innerHTML=`<dt> Size:</dt>
+             <dd>${ Size }</dd>`
+          }, 100);     
             if (response.status) {
+      
               this.handleErrorMessage(response.description);
 
               const soldOutMessage =
@@ -119,12 +121,16 @@ if (!customElements.get("product-form")) {
               window.location = window.routes.cart_url;
               return;
             }
+            
 
             if (!this.error)
               publish(PUB_SUB_EVENTS.cartUpdate, { source: "product-form" });
             this.error = false;
             const quickAddModal = this.closest("quick-add-modal");
             if (quickAddModal) {
+                      document.querySelector("cart-drawer").renderContents(response);
+                document.querySelector("cart-notification").renderContents(response);
+console.log('aaa',response)
               document.body.addEventListener(
                 "modalClosed",
                 () => {
@@ -136,8 +142,10 @@ if (!customElements.get("product-form")) {
               );
               quickAddModal.hide(true);
             } else {
+              
               this.cart.renderContents(response);
             }
+            
           })
           .catch((e) => {
             console.error(e);
