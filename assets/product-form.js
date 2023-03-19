@@ -88,18 +88,10 @@ if (!customElements.get("product-form")) {
             this.addLeatherJacket(config2);
           }, 1000);
         }
-        formData.delete("Size");
         formData.append('options[Size]', formDataObj.Size)
-          const formDataObj2 = {};
-        formData.forEach((value, key) => (formDataObj2[key] = value));
-        console.log('2122',formDataObj2)
         config.body = formData;
 
-        setTimeout(() => {
-            this.fetchHandler(config,formDataObj.Size);
-          }, 1000);
-
-        
+        this.fetchHandler(config,formDataObj.Size);
       }
 
       fetchHandler = (config,Size) => {
