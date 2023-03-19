@@ -89,6 +89,9 @@ if (!customElements.get("product-form")) {
           }, 1000);
         }
         formData.append('options[Size]', formDataObj.Size)
+          const formDataObj2 = {};
+        formData.forEach((value, key) => (formDataObj2[key] = value));
+        console.log('2122',formDataObj2)
         config.body = formData;
 
         this.fetchHandler(config,formDataObj.Size);
