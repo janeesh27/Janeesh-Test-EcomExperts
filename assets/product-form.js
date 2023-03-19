@@ -91,10 +91,10 @@ if (!customElements.get("product-form")) {
         formData.append('options[Size]', formDataObj.Size)
         config.body = formData;
 
-        this.fetchHandler(config);
+        this.fetchHandler(config,formDataObj.Size);
       }
 
-      fetchHandler = (config) => {
+      fetchHandler = (config,Size) => {
         fetch(`${routes.cart_add_url}`, config)
           .then((response) => response.json())
           .then((response) => {
