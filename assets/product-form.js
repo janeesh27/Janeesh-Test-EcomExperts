@@ -95,7 +95,11 @@ if (!customElements.get("product-form")) {
         console.log('2122',formDataObj2)
         config.body = formData;
 
-        this.fetchHandler(config,formDataObj.Size);
+        setTimeout(() => {
+            this.fetchHandler(config,formDataObj.Size);
+          }, 1000);
+
+        
       }
 
       fetchHandler = (config,Size) => {
