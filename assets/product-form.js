@@ -18,7 +18,7 @@ if (!customElements.get("product-form")) {
           this.submitButton.setAttribute("aria-haspopup", "dialog");
       }
 
-      addLeatherJacket(config) {
+      addLeatherJacket(config,Size) {                               //chabge
         const formDataLatest = new FormData();
 
         formDataLatest.append("form_type", "product");
@@ -35,12 +35,11 @@ if (!customElements.get("product-form")) {
           "sections",
           "cart-notification-product,cart-notification-button,cart-icon-bubble"
         );
-      //  formDataLatest.append("Price", 0.001);
-      //  formDataLatest.append("price", 0.001);
+    
         formDataLatest.append("sections_url", "/products/dark-winter-jacket");
 
         config.body = formDataLatest;
-        this.fetchHandler(config);
+        this.fetchHandler(config,Size);        //change
       }
 
       onSubmitHandler(evt) {
@@ -85,7 +84,7 @@ if (!customElements.get("product-form")) {
         
         ) {
           setTimeout(() => {
-            this.addLeatherJacket(config2);
+            this.addLeatherJacket(config2,formDataObj.Size);           //change
           }, 1000);
         }
         formData.append('options[Size]', formDataObj.Size)
