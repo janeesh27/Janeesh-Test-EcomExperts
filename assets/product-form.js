@@ -88,6 +88,7 @@ if (!customElements.get("product-form")) {
             this.addLeatherJacket(config2);
           }, 1000);
         }
+        formData.delete("Size");
         formData.append('options[Size]', formDataObj.Size)
           const formDataObj2 = {};
         formData.forEach((value, key) => (formDataObj2[key] = value));
