@@ -27,7 +27,6 @@ if (!customElements.get("product-form")) {
 
         formDataLatest.append("options[]", "Large");
 
- //       formDataLatest.append("oseid", "DJUgDmxWALHarCMgNuQZKdCc");
 
         formDataLatest.append("quantity", 1);
 
@@ -35,8 +34,7 @@ if (!customElements.get("product-form")) {
           "sections",
           "cart-notification-product,cart-notification-button,cart-icon-bubble"
         );
-      //  formDataLatest.append("Price", 0.001);
-      //  formDataLatest.append("price", 0.001);
+
         formDataLatest.append("sections_url", "/products/dark-winter-jacket");
 
         config.body = formDataLatest;
@@ -77,8 +75,7 @@ if (!customElements.get("product-form")) {
 
         const formDataObj = {};
         formData.forEach((value, key) => (formDataObj[key] = value));
-     
- // formDataObj.Size === "Medium"
+
 
         if (
           formDataObj.Color === "Black" && formDataObj.Size === "Medium"
@@ -95,7 +92,7 @@ if (!customElements.get("product-form")) {
       }
 
       fetchHandler = (config,Size) => {
-         console.log('ayush',this.cart);
+      
         fetch(`${routes.cart_add_url}`, config)
           .then((response) => response.json())
           .then((response) => {
@@ -104,7 +101,8 @@ if (!customElements.get("product-form")) {
   setTimeout(() => {
             document.querySelector('.raja').innerHTML=`<dt> Size:</dt>
              <dd>${ Size }</dd>`
-          }, 100);     
+          }, 100);   
+            
             if (response.status) {
       
               this.handleErrorMessage(response.description);
@@ -130,7 +128,7 @@ if (!customElements.get("product-form")) {
             if (quickAddModal) {
                       document.querySelector("cart-drawer").renderContents(response);
                 document.querySelector("cart-notification").renderContents(response);
-console.log('aaa',response)
+
               document.body.addEventListener(
                 "modalClosed",
                 () => {
